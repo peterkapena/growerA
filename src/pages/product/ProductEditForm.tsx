@@ -63,6 +63,7 @@ export function ProductEditForm({ data }: ProductEdit1Props) {
         const input: AddProductSchemaInput = {
           flgProductType: values.flgProductType,
           quantity: +values.quantity,
+          unitPrice: +values.unitPrice,
         };
         const rtn = (await editProduct({ variables: { input, id: data._id } }))
           .data.editProduct;

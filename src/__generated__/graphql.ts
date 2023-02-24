@@ -17,6 +17,7 @@ export type Scalars = {
 export type AddProductSchemaInput = {
   flgProductType: Scalars['String'];
   quantity: Scalars['Float'];
+  unitPrice: Scalars['Float'];
 };
 
 export type AdminGetUsersSchema = {
@@ -196,6 +197,7 @@ export type ProductSchema = {
   flgProductType: Scalars['String'];
   organisationId: Scalars['String'];
   quantity: Scalars['Float'];
+  unitPrice: Scalars['Float'];
 };
 
 export type Query = {

@@ -70,6 +70,7 @@ export default function Product() {
         const input: AddProductSchemaInput = {
           flgProductType: values.flgProductType,
           quantity: +values.quantity,
+          unitPrice: +values.unitPrice,
         };
 
         const rtn = (await addProduct({ variables: { input } })).data

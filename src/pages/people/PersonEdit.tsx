@@ -17,6 +17,7 @@ import { PAGES } from "../../common";
 import BasicDetails from "../../components/personedit/BasicDetails";
 import ContactDetails from "../../components/personedit/ContactDetails";
 import AddressDetails from "../../components/personedit/AddressDetails";
+import PageLabel from "../../components/labels/PageLabel";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -77,13 +78,7 @@ export default function PersonEdit() {
                 borderRadius: 1,
               }}
             >
-              <Button
-                startIcon={<EditOutlined />}
-                variant="text"
-                onClick={() => navigate(PAGES.PERSONEDIT + "/" + personId)}
-              >
-                Editing {getPerson.givenName}
-              </Button>
+              <PageLabel>Editing {data.name}</PageLabel>
             </Box>
           }
         ></CardHeader>

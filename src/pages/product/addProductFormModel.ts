@@ -23,17 +23,25 @@ export const addProductFormModel = {
       label: "Quantity",
       name: "quantity",
     },
+    unitPrice: {
+      label: "Unit price",
+      name: "unitPrice",
+    },
   },
 };
 
 export const addProductFormInitialValues = {
   [addProductFormModel.formFields.flgProductType.name]: IS_DEVELOPER ? "" : "",
   [addProductFormModel.formFields.quantity.name]: IS_DEVELOPER ? 33 : undefined,
+  [addProductFormModel.formFields.unitPrice.name]: IS_DEVELOPER
+    ? 33
+    : undefined,
 } as AddProductFormValueModel;
 
 export type AddProductFormValueModel = {
   flgProductType: string;
   quantity: number;
+  unitPrice: number;
 };
 
 export const addProductFormValidationSchema = yup.object({
@@ -41,6 +49,9 @@ export const addProductFormValidationSchema = yup.object({
     .string()
     .required("required"),
   [addProductFormModel.formFields.quantity.name]: yup
+    .number()
+    .required("required"),
+  [addProductFormModel.formFields.unitPrice.name]: yup
     .number()
     .required("required"),
 });
