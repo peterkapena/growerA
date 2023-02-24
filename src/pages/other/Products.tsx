@@ -61,7 +61,11 @@ export default function Products() {
       <Typography variant="h4" sx={{ mb: 2 }}>
         Products
       </Typography>
-      <CustomTabs tabs={tabs}></CustomTabs>
+      <DataTable
+        disableColumnMenu
+        rows={orders.map((order, index) => ({ id: index, ...order }))}
+        columns={columns}
+      ></DataTable>
     </div>
   );
 }
@@ -81,15 +85,3 @@ const columns = [
     headerName: "Unit price",
   },
 ];
-
-const tabs: CustomTabPanelProps[] = statuses.map((status) => ({
-  label: status,
-  element: (
-    <DataTable
-      disableColumnMenu
-      rows={orders.map((order, index) => ({ id: index, ...order }))}
-      // SelectableRow={(_) => true}
-      columns={columns}
-    ></DataTable>
-  ),
-}));

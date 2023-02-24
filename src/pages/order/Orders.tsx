@@ -98,42 +98,34 @@ export default function Orders() {
       <Typography variant="h4" sx={{ mb: 2 }}>
         Orders
       </Typography>
-      <CustomTabs tabs={tabs}></CustomTabs>
+      <DataTable
+        disableColumnMenu
+        rows={orders.map((order, index) => ({ id: index, ...order }))}
+        columns={[
+          {
+            field: "order",
+            headerName: "Order",
+            flex: 2,
+            renderCell: (params) => {
+              return <Order order={params.row}></Order>;
+            },
+          },
+          {
+            field: "status",
+            headerName: "Status",
+            renderCell: (params) => {
+              return (
+                <Chip
+                  variant="filled"
+                  color="info"
+                  size="medium"
+                  label={params.row.statuses[1].status}
+                />
+              );
+            },
+          },
+        ]}
+      ></DataTable>
     </div>
   );
 }
-
-const tabs: CustomTabPanelProps[] = statuses.map((status) => ({
-  label: status,
-  element: (
-    <DataTable
-      disableColumnMenu
-      rows={orders.map((order, index) => ({ id: index, ...order }))}
-      // SelectableRow={(_) => true}
-      columns={[
-        {
-          field: "order",
-          headerName: "Order",
-          flex: 2,
-          renderCell: (params) => {
-            return <Order order={params.row}></Order>;
-          },
-        },
-        {
-          field: "status",
-          headerName: "Status",
-          renderCell: (params) => {
-            return (
-              <Chip
-                variant="filled"
-                color="info"
-                size="medium"
-                label={params.row.statuses[1].status}
-              />
-            );
-          },
-        },
-      ]}
-    ></DataTable>
-  ),
-}));
