@@ -109,7 +109,7 @@ export function ProductEditForm({ data }: ProductEdit1Props) {
 
           <TextField
             id={formFields.quantity.name}
-            type="text"
+            type="number"
             fullWidth
             label={formFields.quantity.label}
             size="small"
@@ -117,6 +117,18 @@ export function ProductEditForm({ data }: ProductEdit1Props) {
             error={formik.touched.quantity && Boolean(formik.errors.quantity)}
             helperText={formik.touched.quantity && formik.errors.quantity}
             {...formik.getFieldProps(formFields.quantity.name)}
+          />
+
+          <TextField
+            id={formFields.unitPrice.name}
+            type="number"
+            fullWidth
+            label={formFields.unitPrice.label}
+            size="small"
+            margin="normal"
+            error={formik.touched.unitPrice && Boolean(formik.errors.unitPrice)}
+            helperText={formik.touched.unitPrice && formik.errors.unitPrice}
+            {...formik.getFieldProps(formFields.unitPrice.name)}
           />
 
           <Button

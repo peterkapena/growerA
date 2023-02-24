@@ -117,6 +117,18 @@ export default function Product() {
           </TextField>
 
           <TextField
+            id={formFields.unitPrice.name}
+            type="number"
+            fullWidth
+            label={formFields.unitPrice.label}
+            size="small"
+            margin="normal"
+            error={formik.touched.unitPrice && Boolean(formik.errors.unitPrice)}
+            helperText={formik.touched.unitPrice && formik.errors.unitPrice}
+            {...formik.getFieldProps(formFields.unitPrice.name)}
+          />
+
+          <TextField
             id={formFields.quantity.name}
             type="text"
             fullWidth

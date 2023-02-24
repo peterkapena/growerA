@@ -34,7 +34,7 @@ export const productEditFormInitialValues = (product: any) => {
   return {
     [productEditFormModel.formFields.flgProductType.name]: product.type,
     [productEditFormModel.formFields.quantity.name]: product.quantity,
-    [productEditFormModel.formFields.unitPrice.name]: product.quantity,
+    [productEditFormModel.formFields.unitPrice.name]: product.unitPrice,
   } as ProductEditFormValueModel;
 };
 

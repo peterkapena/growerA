@@ -20,12 +20,12 @@ const documents = {
     "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}": types.VerifyTokenDocument,
     "\nmutation Register($input: RegisterSchemaInput!) {\n  register(input: $input) {\n    person {\n      surName\n      givenName\n    }\n    organisation {\n      name\n    }\n  }\n}\n": types.RegisterDocument,
     "\nmutation Signin($input: SigninInput!) {\n  signin(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    message\n  }\n}\n": types.SigninDocument,
-    "\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    quantity     \n    name\n    _id\n  }\n}\n": types.GetProductsByOrganisationDocument,
+    "\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    unitPrice\n    quantity     \n    name\n    _id\n  }\n}\n": types.GetProductsByOrganisationDocument,
     "\nquery GetPersons {\n  getPersons {\n    _id\n    surName\n    givenName\n    gender\n    maritalStatus\n    organisation\n  }\n}\n": types.GetPersonsDocument,
     "\nquery GetPerson($input: String!) {\n  getPerson(input: $input) {\n    _id\n    surName\n    givenName\n    gender\n    maritalStatus\n    organisation\n    email\n    cellNumber1\n    cellNumber2\n    line1\n    line2\n    line3\n    line4\n    line5\n    line6\n    organisationId\n    contactId\n    addressId\n  }\n}\n": types.GetPersonDocument,
     "\nquery GetPersonEdit($input: String!) {\n    getPerson(input: $input) {\n      _id\n      surName\n      givenName\n      gender\n      maritalStatus\n      organisation\n      email\n      cellNumber1\n      cellNumber2\n      line1\n      line2\n      line3\n      line4\n      line5\n      line6\n      organisationId\n      contactId\n      addressId\n      flgGender\n      flgMaritalStatus\n    }\n  }\n  ": types.GetPersonEditDocument,
     "\nmutation AddProduct($input: AddProductSchemaInput!) {\n    addProduct(input: $input) {\n      quantity\n      organisationId\n      flgProductType\n      _id\n    }\n  }\n": types.AddProductDocument,
-    "\nquery GetProduct($input: String!) {\n  getProduct(input: $input) {\n    _id\n    quantity\n    type\n    name\n  }\n}\n": types.GetProductDocument,
+    "\nquery GetProduct($input: String!) {\n  getProduct(input: $input) {\n    _id\n    quantity\n    type\n    name\n    unitPrice\n  }\n}\n": types.GetProductDocument,
     "\nmutation EditProduct($input: AddProductSchemaInput!, $id: String!) {\n  editProduct(input: $input, id: $id)\n}\n": types.EditProductDocument,
     "\nquery ADD_USER {\n  getOrganisations {\n    _id\n    name\n  }\n  getPersons {\n    givenName\n    surName\n    _id\n  }\n}\n": types.Add_UserDocument,
     "\nquery AdminGetUsers {\n  adminGetUsers {\n    _id\n    entPersonName\n    organisationName\n    username\n    adminApproved\n  }\n}\n": types.AdminGetUsersDocument,
@@ -77,7 +77,7 @@ export function gql(source: "\nmutation Signin($input: SigninInput!) {\n  signin
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    quantity     \n    name\n    _id\n  }\n}\n"): (typeof documents)["\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    quantity     \n    name\n    _id\n  }\n}\n"];
+export function gql(source: "\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    unitPrice\n    quantity     \n    name\n    _id\n  }\n}\n"): (typeof documents)["\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    unitPrice\n    quantity     \n    name\n    _id\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -97,7 +97,7 @@ export function gql(source: "\nmutation AddProduct($input: AddProductSchemaInput
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nquery GetProduct($input: String!) {\n  getProduct(input: $input) {\n    _id\n    quantity\n    type\n    name\n  }\n}\n"): (typeof documents)["\nquery GetProduct($input: String!) {\n  getProduct(input: $input) {\n    _id\n    quantity\n    type\n    name\n  }\n}\n"];
+export function gql(source: "\nquery GetProduct($input: String!) {\n  getProduct(input: $input) {\n    _id\n    quantity\n    type\n    name\n    unitPrice\n  }\n}\n"): (typeof documents)["\nquery GetProduct($input: String!) {\n  getProduct(input: $input) {\n    _id\n    quantity\n    type\n    name\n    unitPrice\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

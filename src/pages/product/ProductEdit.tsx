@@ -22,6 +22,7 @@ query GetProduct($input: String!) {
     quantity
     type
     name
+    unitPrice
   }
 }
 `);

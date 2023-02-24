@@ -29,11 +29,16 @@ const columns: GridColDef[] = [
     field: "quantity",
     headerName: "Quantity",
   },
+  {
+    field: "unitPrice",
+    headerName: "Unit price",
+  },
 ];
 
 const GetProductsByOrganisation = gql(`
 query GetProductsByOrganisation($input: String!) {
   getProductsByOrganisation(input: $input) {
+    unitPrice
     quantity     
     name
     _id
@@ -52,7 +57,7 @@ export default function Store() {
 
   return (
     <>
-    <PageLabel>Store</PageLabel>
+      <PageLabel>Store</PageLabel>
       <Card>
         <CardHeader
           title={
@@ -90,6 +95,7 @@ type StorePropType = {
   id: string;
   quantity: number;
   name: string;
+  unitPrice: number;
 };
 
 function rows(
@@ -103,5 +109,6 @@ function rows(
     id: u._id,
     quantity: u.quantity,
     name: u.name,
+    unitPrice: u.unitPrice,
   }));
 }
