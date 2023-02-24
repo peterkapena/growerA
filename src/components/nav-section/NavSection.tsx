@@ -8,8 +8,10 @@ import AnalyticsIcon from "@mui/icons-material/Analytics";
 import AddIcon from "@mui/icons-material/Add";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import StoreIcon from "@mui/icons-material/Store";
-import PeopleIcon from '@mui/icons-material/People';
-import AgricultureIcon from '@mui/icons-material/Agriculture';
+import PeopleIcon from "@mui/icons-material/People";
+import AgricultureIcon from "@mui/icons-material/Agriculture";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const menus: NavItemProps[] = [
   {
@@ -37,16 +39,16 @@ const menus: NavItemProps[] = [
     path: PAGES.FARMS,
     icon: <AgricultureIcon />,
   },
-  // {
-  //   title: "Market",
-  //   path: PAGES.PRODUCTS,
-  //   icon: <StorefrontIcon />,
-  // },
-  // {
-  //   title: "My Orders",
-  //   path: PAGES.ORDERS,
-  //   icon: <ShoppingCartIcon />,
-  // },
+  {
+    title: "Market",
+    path: PAGES.PRODUCTS,
+    icon: <StorefrontIcon />,
+  },
+  {
+    title: "My Orders",
+    path: PAGES.ORDERS,
+    icon: <ShoppingCartIcon />,
+  },
 ];
 
 export default function NavSection() {

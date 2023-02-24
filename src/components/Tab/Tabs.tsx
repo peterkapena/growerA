@@ -70,7 +70,7 @@ export default function CustomTabs(props: CustomTabsProps) {
         </Tabs>
       </Box>
       {props.tabs.map((tab, index) => (
-        <TabPanel value={value} index={index}>
+        <TabPanel key={index} value={value} index={index}>
           {tab.element}
         </TabPanel>
       ))}
