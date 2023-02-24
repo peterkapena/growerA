@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import { FormikHelpers, useFormik } from "formik";
 import { IS_DEVELOPER, PAGES } from "../../common";
 import { gql } from "../../__generated__";
@@ -19,6 +18,7 @@ import {
 import Loading from "../../components/other/Loading";
 import { MenuItem } from "@mui/material";
 import { AddProductSchemaInput } from "../../__generated__/graphql";
+import PageLabel from "../../components/labels/PageLabel";
 
 const GET_FLAGS_PRODUCTS_TYPE = gql(`
 query GetFlagsByType($input: Float!) {
@@ -90,7 +90,7 @@ export default function Product() {
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <Grid item>
-        <Typography variant="h4">Add a product to your store</Typography>
+        <PageLabel>Add a product to your store</PageLabel>
         <form id={formId} onSubmit={formik.handleSubmit}>
           <TextField
             label={formFields.flgProductType.label}

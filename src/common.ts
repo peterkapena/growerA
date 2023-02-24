@@ -16,7 +16,6 @@ export const PAGES = {
   ADMIN: "/admn",
   PROFILE: "/prfl",
   REGISTER: "/register",
-  // ADDUSER: "/addsr",
   ADDPRODUCT: "/addproduct",
   STORE: "/store",
   ORDERS: "/orders",
@@ -24,6 +23,7 @@ export const PAGES = {
   SETTINGS: "/settings",
   PRODUCTS: "/products",
   PRODUCT: "/product",
+  USERS: "/users",
 };
 
 export function getRandomInt(min: number, max: number) {

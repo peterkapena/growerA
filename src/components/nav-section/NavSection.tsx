@@ -5,11 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { PAGES } from "../../common";
 import { ReactElement } from "react";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-import StoreIcon from "@mui/icons-material/Store";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddIcon from "@mui/icons-material/Add";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
-import StorefrontIcon from "@mui/icons-material/Storefront";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import StoreIcon from "@mui/icons-material/Store";
 
 const menus: NavItemProps[] = [
   {
@@ -18,20 +16,25 @@ const menus: NavItemProps[] = [
     icon: <AnalyticsIcon />,
   },
   {
+    title: "Users",
+    path: PAGES.USERS,
+    icon: <AccountCircleIcon />,
+  },
+  {
     title: "Store",
     path: PAGES.STORE,
     icon: <StoreIcon />,
   },
-  {
-    title: "Market",
-    path: PAGES.PRODUCTS,
-    icon: <StorefrontIcon />,
-  },
-  {
-    title: "My Orders",
-    path: PAGES.ORDERS,
-    icon: <ShoppingCartIcon />,
-  },
+  // {
+  //   title: "Market",
+  //   path: PAGES.PRODUCTS,
+  //   icon: <StorefrontIcon />,
+  // },
+  // {
+  //   title: "My Orders",
+  //   path: PAGES.ORDERS,
+  //   icon: <ShoppingCartIcon />,
+  // },
 ];
 
 export default function NavSection() {
@@ -60,12 +63,12 @@ export default function NavSection() {
           onClick={() => navigate(PAGES.PRODUCT)}
         />
       </Box>
-      <NavItem
+      {/* <NavItem
         icon={<AppRegistrationIcon />}
         title={"REGISTER"}
         path={PAGES.REGISTER}
         onClick={() => navigate(PAGES.REGISTER)}
-      />
+      /> */}
     </Box>
   );
 }
