@@ -1,4 +1,5 @@
 import { Chip, Typography } from "@mui/material";
+import PageLabel from "../../components/labels/PageLabel";
 import Order from "../../components/order/";
 import DataTable from "../../components/other/DataTable";
 import CustomTabs, { CustomTabPanelProps } from "../../components/Tab/Tabs";
@@ -95,9 +96,7 @@ const orders = [
 export default function Orders() {
   return (
     <div>
-      <Typography variant="h4" sx={{ mb: 2 }}>
-        Orders
-      </Typography>
+      <PageLabel>Orders</PageLabel>
       <DataTable
         disableColumnMenu
         rows={orders.map((order, index) => ({ id: index, ...order }))}

@@ -6,6 +6,7 @@ import Loading from "../../components/other/Loading";
 import { GetPersonsQuery } from "../../__generated__/graphql";
 import { useNavigate } from "react-router-dom";
 import { PAGES } from "../../common";
+import PageLabel from "../../components/labels/PageLabel";
 
 export default function People() {
   return (
@@ -36,6 +37,7 @@ export function PeopleGrid() {
 
   return (
     <>
+    <PageLabel>People</PageLabel>
       <Typography sx={{ p: 1 }} variant="subtitle1">
         Click a row to view
       </Typography>

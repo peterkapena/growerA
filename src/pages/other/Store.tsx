@@ -15,6 +15,7 @@ import { GetProductsByOrganisationQuery } from "../../__generated__/graphql";
 import { useNavigate } from "react-router-dom";
 import { PAGES } from "../../common";
 import AddIcon from "@mui/icons-material/Add";
+import PageLabel from "../../components/labels/PageLabel";
 
 const columns: GridColDef[] = [
   {
@@ -51,6 +52,7 @@ export default function Store() {
 
   return (
     <>
+    <PageLabel>Store</PageLabel>
       <Card>
         <CardHeader
           title={
