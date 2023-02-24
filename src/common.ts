@@ -6,7 +6,7 @@ export const IS_DEVELOPER = process.env.NODE_ENV === "development";
 export const STR_USER = "user";
 export const STR_TOKEN = "token";
 export const STR_THEME_MODE = "THEME_MODE";
-export const APP_NAME = "Grower X";
+export const APP_NAME = "Grower A";
 
 export const PAGES = {
   HOME: "/",
