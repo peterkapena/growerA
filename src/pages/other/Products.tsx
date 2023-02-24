@@ -1,5 +1,4 @@
-import { Chip, Typography } from "@mui/material";
-import Order from "../../components/order/";
+import { Typography } from "@mui/material";
 import DataTable from "../../components/other/DataTable";
 import CustomTabs, { CustomTabPanelProps } from "../../components/Tab/Tabs";
 

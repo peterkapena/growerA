@@ -1,10 +1,8 @@
-import { IS_DEVELOPER } from "../../common";
 import { gql } from "../../__generated__";
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/other/Loading";
 import {
-  AddProductSchemaInput,
   GetProductsSchema,
 } from "../../__generated__/graphql";
 import { ProductEditForm } from "./ProductEditForm";

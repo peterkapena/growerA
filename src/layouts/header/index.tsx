@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Box, Stack, AppBar, Toolbar, IconButton, Button } from "@mui/material";
+import { Box, Stack, AppBar, Toolbar, IconButton } from "@mui/material";
 import Searchbar from "./Searchbar";
 import AccountPopover from "./AccountPopover";
 import ThemeToggle from "./ThemeToggle";

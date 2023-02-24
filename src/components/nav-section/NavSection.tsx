@@ -9,7 +9,6 @@ import StoreIcon from "@mui/icons-material/Store";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddIcon from "@mui/icons-material/Add";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
-import Products from "../../pages/other/Products";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 
 const menus: NavItemProps[] = [

@@ -67,7 +67,7 @@ export default function Dashboard() {
       }
     };
     verifyTokenAsync();
-  }, []);
+  }, [dispatch, token, verifyToken]);
 
   if (loaded) return <DashboardLayout />;
   else
