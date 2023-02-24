@@ -4,7 +4,10 @@ import DataTable from "../../components/other/DataTable";
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import Loading from "../../components/other/Loading";
 import { AdminGetUsersQuery } from "../../__generated__/graphql";
-import { Switch, Typography } from "@mui/material";
+import { Box, Button, CardHeader, Switch, Typography } from "@mui/material";
+import { PAGES } from "../../common";
+import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 const AdminGetUsers = gql(`
 query AdminGetUsers {
@@ -36,6 +39,7 @@ const RenderApproved = (props: GridRenderCellParams<boolean>) => {
 };
 
 export default function Users() {
+  const navigate = useNavigate();
   const { data, loading } = useQuery(AdminGetUsers);
 
   if (loading) return <Loading></Loading>;
@@ -45,6 +49,26 @@ export default function Users() {
       <Typography variant="h5" sx={{ mb: 2 }}>
         Users
       </Typography>
+      <CardHeader
+        title={
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              borderRadius: 1,
+            }}
+          >
+            <Button
+              endIcon={<AddIcon />}
+              variant="outlined"
+              onClick={() => navigate(PAGES.ADDUSER)}
+            >
+              Add a user
+            </Button>
+          </Box>
+        }
+      ></CardHeader>
+
       <DataTable
         rows={rows(data)}
         columns={columns}

@@ -33,7 +33,7 @@ export default function Nav({ openNav, onCloseNav }: NavProps) {
     if (openNav) {
       onCloseNav();
     }
-  }, [pathname, onCloseNav, openNav]);
+  }, []);
 
   const renderContent = (
     <Scrollbar

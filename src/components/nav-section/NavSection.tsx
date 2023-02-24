@@ -8,6 +8,8 @@ import AnalyticsIcon from "@mui/icons-material/Analytics";
 import AddIcon from "@mui/icons-material/Add";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import StoreIcon from "@mui/icons-material/Store";
+import PeopleIcon from '@mui/icons-material/People';
+import AgricultureIcon from '@mui/icons-material/Agriculture';
 
 const menus: NavItemProps[] = [
   {
@@ -21,9 +23,19 @@ const menus: NavItemProps[] = [
     icon: <AccountCircleIcon />,
   },
   {
-    title: "Store",
+    title: "Grower store",
     path: PAGES.STORE,
     icon: <StoreIcon />,
+  },
+  {
+    title: "People",
+    path: PAGES.PEOPLE,
+    icon: <PeopleIcon />,
+  },
+  {
+    title: "Farms",
+    path: PAGES.FARMS,
+    icon: <AgricultureIcon />,
   },
   // {
   //   title: "Market",

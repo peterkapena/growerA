@@ -11,6 +11,11 @@ import Register from "./pages/other/Register";
 import Products from "./pages/other/Products";
 import ProductEdit from "./pages/product/ProductEdit";
 import Users from "./pages/user/Users";
+import Farms from "./pages/farms/Farms";
+import People from "./pages/people/People";
+import Person from "./pages/people/Person";
+import PersonEdit from "./pages/people/PersonEdit";
+import AddUser from "./pages/user/AddUser";
 
 export const routes = createBrowserRouter([
   {
@@ -45,6 +50,27 @@ export const routes = createBrowserRouter([
       {
         path: PAGES.USERS,
         element: <Users />,
+      },
+      {
+        path: PAGES.ADDUSER,
+        element: <AddUser />,
+      },
+
+      {
+        path: PAGES.FARMS,
+        element: <Farms />,
+      },
+      {
+        path: PAGES.PEOPLE,
+        element: <People></People>,
+      },
+      {
+        path: PAGES.PERSON + "/:personId",
+        element: <Person></Person>,
+      },
+      {
+        path: PAGES.PERSONEDIT + "/:personId",
+        element: <PersonEdit></PersonEdit>,
       },
     ],
   },

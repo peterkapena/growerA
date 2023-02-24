@@ -19,7 +19,7 @@ interface LabelProps {
 }
 
 const PageLabel: React.FC<LabelProps> = ({ variant, children }) => (
-  <Typography variant={variant || "h5"}>{children}</Typography>
+  <Typography mb={2} variant={variant || "h5"}>{children}</Typography>
 );
 
 export default PageLabel;

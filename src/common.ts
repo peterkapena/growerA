@@ -11,7 +11,7 @@ export const APP_NAME = "Grower A";
 export const PAGES = {
   HOME: "/",
   SIGNIN: "/sgn",
-  PEOPLE: "/ppl",
+  PEOPLE: "/people",
   ORGANISATIONS: "/orgs",
   ADMIN: "/admn",
   PROFILE: "/prfl",
@@ -24,6 +24,10 @@ export const PAGES = {
   PRODUCTS: "/products",
   PRODUCT: "/product",
   USERS: "/users",
+  PERSON: "/person",
+  PERSONEDIT: "/editp",
+  FARMS: "/farms",
+  ADDUSER: "/addusr",
 };
 
 export function getRandomInt(min: number, max: number) {
