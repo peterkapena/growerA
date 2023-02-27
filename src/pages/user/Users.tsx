@@ -8,6 +8,7 @@ import { Box, Button, CardHeader, Switch, Typography } from "@mui/material";
 import { PAGES } from "../../common";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
+import PageLabel from "../../components/labels/PageLabel";
 
 const AdminGetUsers = gql(`
 query AdminGetUsers {
@@ -39,6 +40,15 @@ const RenderApproved = (props: GridRenderCellParams<boolean>) => {
 };
 
 export default function Users() {
+  return (
+    <>
+      <PageLabel>Users</PageLabel>
+      <UsersDataGrid></UsersDataGrid>
+    </>
+  );
+}
+
+export function UsersDataGrid() {
   const navigate = useNavigate();
   const { data, loading } = useQuery(AdminGetUsers);
 
@@ -46,9 +56,6 @@ export default function Users() {
 
   return (
     <>
-      <Typography variant="h5" sx={{ mb: 2 }}>
-        Users
-      </Typography>
       <CardHeader
         title={
           <Box

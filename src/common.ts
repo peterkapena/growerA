@@ -28,6 +28,8 @@ export const PAGES = {
   PERSONEDIT: "/editp",
   FARMS: "/farms",
   ADDUSER: "/addusr",
+  FLAGS: "/flags",
+  FLAG: "/flag",
 };
 
 export function getRandomInt(min: number, max: number) {

@@ -18,6 +18,10 @@ const documents = {
     "\nmutation EditPersonBasicDetails($input: EditPersonBasicDetailsSchema!) {\n  editPersonBasicDetails(input: $input)\n}\n": types.EditPersonBasicDetailsDocument,
     "\nmutation EditContactDetails($input: EditContactDetailsSchema!) {\n  editContactDetails(input: $input)\n}": types.EditContactDetailsDocument,
     "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}": types.VerifyTokenDocument,
+    "\n    query GetFlag($input: String!) {\n        getFlag(input: $input) {\n        flagTypeId\n        flagType\n        description\n        _id\n        }\n  }": types.GetFlagDocument,
+    "\n  mutation AddOrUpdateFlag($input: AddOrUpdateFlag!) {\n    addOrUpdateFlag(input: $input)\n  }\n  ": types.AddOrUpdateFlagDocument,
+    "\nquery GetFlagTypes {\n  getFlagTypes {\n    id\n    typeName\n  }\n}\n": types.GetFlagTypesDocument,
+    "\nquery GetFlagsByType_Flags_Page($input: Float!) {\n  getFlagsByType(input: $input) {\n    description\n    _id\n  }\n}\n": types.GetFlagsByType_Flags_PageDocument,
     "\nmutation Register($input: RegisterSchemaInput!) {\n  register(input: $input) {\n    person {\n      surName\n      givenName\n    }\n    organisation {\n      name\n    }\n  }\n}\n": types.RegisterDocument,
     "\nmutation Signin($input: SigninInput!) {\n  signin(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    message\n  }\n}\n": types.SigninDocument,
     "\nquery GetProductsByOrganisation($input: String!) {\n  getProductsByOrganisation(input: $input) {\n    unitPrice\n    quantity     \n    name\n    _id\n  }\n}\n": types.GetProductsByOrganisationDocument,
@@ -66,6 +70,22 @@ export function gql(source: "\nmutation EditContactDetails($input: EditContactDe
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}"): (typeof documents)["\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n    query GetFlag($input: String!) {\n        getFlag(input: $input) {\n        flagTypeId\n        flagType\n        description\n        _id\n        }\n  }"): (typeof documents)["\n    query GetFlag($input: String!) {\n        getFlag(input: $input) {\n        flagTypeId\n        flagType\n        description\n        _id\n        }\n  }"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  mutation AddOrUpdateFlag($input: AddOrUpdateFlag!) {\n    addOrUpdateFlag(input: $input)\n  }\n  "): (typeof documents)["\n  mutation AddOrUpdateFlag($input: AddOrUpdateFlag!) {\n    addOrUpdateFlag(input: $input)\n  }\n  "];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nquery GetFlagTypes {\n  getFlagTypes {\n    id\n    typeName\n  }\n}\n"): (typeof documents)["\nquery GetFlagTypes {\n  getFlagTypes {\n    id\n    typeName\n  }\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nquery GetFlagsByType_Flags_Page($input: Float!) {\n  getFlagsByType(input: $input) {\n    description\n    _id\n  }\n}\n"): (typeof documents)["\nquery GetFlagsByType_Flags_Page($input: Float!) {\n  getFlagsByType(input: $input) {\n    description\n    _id\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

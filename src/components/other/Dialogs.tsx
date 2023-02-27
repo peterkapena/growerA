@@ -51,7 +51,7 @@ export function AlertDialog(props: AlertDialogProps) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Ok</Button>
+          <Button onClick={handleClose}>{onConfirm ? "No" : "Ok"}</Button>
           {onConfirm && <Button onClick={onConfirm}>Yes</Button>}
         </DialogActions>
       </Dialog>

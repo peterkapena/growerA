@@ -16,6 +16,10 @@ import People from "./pages/people/People";
 import Person from "./pages/people/Person";
 import PersonEdit from "./pages/people/PersonEdit";
 import AddUser from "./pages/user/AddUser";
+import FlagTypes from "./pages/flag/FlagTypes";
+import Admin from "./pages/admin/Admin";
+import Flags from "./pages/flag/Flags";
+import Flag from "./pages/flag/Flag";
 
 export const routes = createBrowserRouter([
   {
@@ -71,6 +75,18 @@ export const routes = createBrowserRouter([
       {
         path: PAGES.PERSONEDIT + "/:personId",
         element: <PersonEdit></PersonEdit>,
+      },
+      {
+        path: PAGES.FLAGS + "/:flagTypeId",
+        element: <Flags></Flags>,
+      },
+      {
+        path: PAGES.FLAG + "/:flagTypeId/:flagId?",
+        element: <Flag></Flag>,
+      },
+      {
+        path: PAGES.ADMIN,
+        element: <Admin></Admin>,
       },
     ],
   },

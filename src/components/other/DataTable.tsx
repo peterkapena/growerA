@@ -8,6 +8,7 @@ import {
   GridValidRowModel,
 } from "@mui/x-data-grid";
 import { Paper } from "@mui/material";
+import PageLabel from "../labels/PageLabel";
 
 export type DataTableProps<R extends GridValidRowModel> = {
   rows: GridRowsProp<R>;
@@ -30,7 +31,10 @@ export default function DataTable<R extends GridValidRowModel>(
     onRowClick,
   } = props;
   return (
-    <div style={{ display: "flex" }}>
+    <div>
+      {onRowClick && (
+        <PageLabel variant="subtitle1">Click a row to view/edit</PageLabel>
+      )}
       <DataGrid
         disableColumnMenu={disableColumnMenu}
         autoHeight

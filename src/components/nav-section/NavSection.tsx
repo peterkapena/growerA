@@ -6,7 +6,7 @@ import { PAGES } from "../../common";
 import { ReactElement } from "react";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import AddIcon from "@mui/icons-material/Add";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import StoreIcon from "@mui/icons-material/Store";
 import PeopleIcon from "@mui/icons-material/People";
 import AgricultureIcon from "@mui/icons-material/Agriculture";
@@ -20,9 +20,9 @@ const menus: NavItemProps[] = [
     icon: <AnalyticsIcon />,
   },
   {
-    title: "Users",
-    path: PAGES.USERS,
-    icon: <AccountCircleIcon />,
+    title: "Admin",
+    path: PAGES.ADMIN,
+    icon: <AdminPanelSettingsIcon />,
   },
   {
     title: "Grower store",

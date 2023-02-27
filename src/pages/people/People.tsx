@@ -1,5 +1,4 @@
 import { gql, useQuery } from "@apollo/client";
-import Typography from "@mui/material/Typography";
 import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/other/DataTable";
 import Loading from "../../components/other/Loading";
@@ -10,9 +9,10 @@ import PageLabel from "../../components/labels/PageLabel";
 
 export default function People() {
   return (
-    <div>
+    <>
+      <PageLabel>People</PageLabel>
       <PeopleGrid></PeopleGrid>
-    </div>
+    </>
   );
 }
 
@@ -37,11 +37,6 @@ export function PeopleGrid() {
 
   return (
     <>
-    <PageLabel>People</PageLabel>
-      <Typography sx={{ p: 1 }} variant="subtitle1">
-        Click a row to view
-      </Typography>
-
       <DataTable
         rows={rows(data)}
         columns={columns}

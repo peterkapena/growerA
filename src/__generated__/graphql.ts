@@ -14,6 +14,13 @@ export type Scalars = {
   Float: number;
 };
 
+export type AddOrUpdateFlag = {
+  _id?: InputMaybe<Scalars['String']>;
+  archived?: InputMaybe<Scalars['Boolean']>;
+  description: Scalars['String'];
+  flagTypeId: Scalars['Float'];
+};
+
 export type AddProductSchemaInput = {
   flgProductType: Scalars['String'];
   quantity: Scalars['Float'];
@@ -75,6 +82,20 @@ export type GetFlagByTypeAndDescription = {
   type: Scalars['Float'];
 };
 
+export type GetFlagSchema = {
+  __typename?: 'GetFlagSchema';
+  _id: Scalars['String'];
+  description: Scalars['String'];
+  flagType: Scalars['String'];
+  flagTypeId: Scalars['Float'];
+};
+
+export type GetFlagType = {
+  __typename?: 'GetFlagType';
+  id: Scalars['String'];
+  typeName: Scalars['String'];
+};
+
 export type GetOrganisationsSchema = {
   __typename?: 'GetOrganisationsSchema';
   _id: Scalars['String'];
@@ -128,6 +149,7 @@ export type GetProductsSchema = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  addOrUpdateFlag: Scalars['Boolean'];
   addProduct: ProductSchema;
   createUser: UserSchema;
   editAddressDetails: Scalars['Boolean'];
@@ -138,6 +160,11 @@ export type Mutation = {
   signin: SigninOutput;
   toggleAdminApproved: Scalars['Boolean'];
   verifyToken: VerifyTokenSchema;
+};
+
+
+export type MutationAddOrUpdateFlagArgs = {
+  input: AddOrUpdateFlag;
 };
 
 
@@ -204,7 +231,9 @@ export type ProductSchema = {
 export type Query = {
   __typename?: 'Query';
   adminGetUsers: Array<AdminGetUsersSchema>;
+  getFlag: GetFlagSchema;
   getFlagByTypeAndDescription: FlagSchema;
+  getFlagTypes: Array<GetFlagType>;
   getFlagsByType: Array<FlagSchema>;
   getOrganisations: Array<GetOrganisationsSchema>;
   getPerson: GetPersonSchema;
@@ -213,6 +242,11 @@ export type Query = {
   getProducts: Array<GetProductsSchema>;
   getProductsByOrganisation: Array<GetProductsSchema>;
   testQuery: Scalars['String'];
+};
+
+
+export type QueryGetFlagArgs = {
+  input: Scalars['String'];
 };
 
 
@@ -396,6 +430,32 @@ export type VerifyTokenMutationVariables = Exact<{
 
 export type VerifyTokenMutation = { __typename?: 'Mutation', verifyToken: { __typename?: 'VerifyTokenSchema', username?: string | null, token: string, email?: string | null, surName?: string | null, givenName?: string | null, isValid: boolean, organisationId: string } };
 
+export type GetFlagQueryVariables = Exact<{
+  input: Scalars['String'];
+}>;
+
+
+export type GetFlagQuery = { __typename?: 'Query', getFlag: { __typename?: 'GetFlagSchema', flagTypeId: number, flagType: string, description: string, _id: string } };
+
+export type AddOrUpdateFlagMutationVariables = Exact<{
+  input: AddOrUpdateFlag;
+}>;
+
+
+export type AddOrUpdateFlagMutation = { __typename?: 'Mutation', addOrUpdateFlag: boolean };
+
+export type GetFlagTypesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetFlagTypesQuery = { __typename?: 'Query', getFlagTypes: Array<{ __typename?: 'GetFlagType', id: string, typeName: string }> };
+
+export type GetFlagsByType_Flags_PageQueryVariables = Exact<{
+  input: Scalars['Float'];
+}>;
+
+
+export type GetFlagsByType_Flags_PageQuery = { __typename?: 'Query', getFlagsByType: Array<{ __typename?: 'FlagSchema', description: string, _id: string }> };
+
 export type RegisterMutationVariables = Exact<{
   input: RegisterSchemaInput;
 }>;
@@ -482,6 +542,10 @@ export const GetFlagsByTypeDocument = {"kind":"Document","definitions":[{"kind":
 export const EditPersonBasicDetailsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"EditPersonBasicDetails"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"EditPersonBasicDetailsSchema"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editPersonBasicDetails"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<EditPersonBasicDetailsMutation, EditPersonBasicDetailsMutationVariables>;
 export const EditContactDetailsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"EditContactDetails"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"EditContactDetailsSchema"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"editContactDetails"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<EditContactDetailsMutation, EditContactDetailsMutationVariables>;
 export const VerifyTokenDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"VerifyToken"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"verifyToken"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"token"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"surName"}},{"kind":"Field","name":{"kind":"Name","value":"givenName"}},{"kind":"Field","name":{"kind":"Name","value":"isValid"}},{"kind":"Field","name":{"kind":"Name","value":"organisationId"}}]}}]}}]} as unknown as DocumentNode<VerifyTokenMutation, VerifyTokenMutationVariables>;
+export const GetFlagDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetFlag"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getFlag"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"flagTypeId"}},{"kind":"Field","name":{"kind":"Name","value":"flagType"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"_id"}}]}}]}}]} as unknown as DocumentNode<GetFlagQuery, GetFlagQueryVariables>;
+export const AddOrUpdateFlagDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AddOrUpdateFlag"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AddOrUpdateFlag"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addOrUpdateFlag"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<AddOrUpdateFlagMutation, AddOrUpdateFlagMutationVariables>;
+export const GetFlagTypesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetFlagTypes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getFlagTypes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"typeName"}}]}}]}}]} as unknown as DocumentNode<GetFlagTypesQuery, GetFlagTypesQueryVariables>;
+export const GetFlagsByType_Flags_PageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetFlagsByType_Flags_Page"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getFlagsByType"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"_id"}}]}}]}}]} as unknown as DocumentNode<GetFlagsByType_Flags_PageQuery, GetFlagsByType_Flags_PageQueryVariables>;
 export const RegisterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Register"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"RegisterSchemaInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"register"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"surName"}},{"kind":"Field","name":{"kind":"Name","value":"givenName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"organisation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<RegisterMutation, RegisterMutationVariables>;
 export const SigninDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Signin"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SigninInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"signin"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"token"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"surName"}},{"kind":"Field","name":{"kind":"Name","value":"givenName"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<SigninMutation, SigninMutationVariables>;
 export const GetProductsByOrganisationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProductsByOrganisation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getProductsByOrganisation"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"unitPrice"}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"_id"}}]}}]}}]} as unknown as DocumentNode<GetProductsByOrganisationQuery, GetProductsByOrganisationQueryVariables>;
