@@ -159,6 +159,7 @@ export type Mutation = {
   register: RegisterSchema;
   signin: SigninOutput;
   toggleAdminApproved: Scalars['Boolean'];
+  toggleArchived: Scalars['Boolean'];
   verifyToken: VerifyTokenSchema;
 };
 
@@ -215,6 +216,12 @@ export type MutationToggleAdminApprovedArgs = {
 };
 
 
+export type MutationToggleArchivedArgs = {
+  archived: Scalars['Boolean'];
+  id: Scalars['String'];
+};
+
+
 export type MutationVerifyTokenArgs = {
   input: Scalars['String'];
 };
@@ -222,6 +229,7 @@ export type MutationVerifyTokenArgs = {
 export type ProductSchema = {
   __typename?: 'ProductSchema';
   _id: Scalars['String'];
+  archived?: Maybe<Scalars['Boolean']>;
   flgProductType: Scalars['String'];
   organisationId: Scalars['String'];
   quantity: Scalars['Float'];
@@ -231,7 +239,7 @@ export type ProductSchema = {
 export type Query = {
   __typename?: 'Query';
   adminGetUsers: Array<AdminGetUsersSchema>;
-  getFlag: GetFlagSchema;
+  getFlag?: Maybe<GetFlagSchema>;
   getFlagByTypeAndDescription: FlagSchema;
   getFlagTypes: Array<GetFlagType>;
   getFlagsByType: Array<FlagSchema>;
@@ -435,7 +443,7 @@ export type GetFlagQueryVariables = Exact<{
 }>;
 
 
-export type GetFlagQuery = { __typename?: 'Query', getFlag: { __typename?: 'GetFlagSchema', flagTypeId: number, flagType: string, description: string, _id: string } };
+export type GetFlagQuery = { __typename?: 'Query', getFlag?: { __typename?: 'GetFlagSchema', flagTypeId: number, flagType: string, description: string, _id: string } | null };
 
 export type AddOrUpdateFlagMutationVariables = Exact<{
   input: AddOrUpdateFlag;
