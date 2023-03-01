@@ -12,6 +12,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
+  DateTime: any;
 };
 
 export type AddOrUpdateFlag = {
@@ -19,6 +21,13 @@ export type AddOrUpdateFlag = {
   archived?: InputMaybe<Scalars['Boolean']>;
   description: Scalars['String'];
   flagTypeId: Scalars['Float'];
+};
+
+export type AddOrUpdateOrder = {
+  _id?: InputMaybe<Scalars['String']>;
+  organisationId: Scalars['String'];
+  productId: Scalars['String'];
+  quantity: Scalars['Float'];
 };
 
 export type AddProductSchemaInput = {
@@ -96,6 +105,17 @@ export type GetFlagType = {
   typeName: Scalars['String'];
 };
 
+export type GetOrder = {
+  __typename?: 'GetOrder';
+  _id?: Maybe<Scalars['String']>;
+  dateSubmitted: Scalars['DateTime'];
+  flgStatus: Scalars['String'];
+  productName: Scalars['String'];
+  quantity: Scalars['Float'];
+  submittedBy: Scalars['String'];
+  unitPrice: Scalars['Float'];
+};
+
 export type GetOrganisationsSchema = {
   __typename?: 'GetOrganisationsSchema';
   _id: Scalars['String'];
@@ -150,6 +170,7 @@ export type GetProductsSchema = {
 export type Mutation = {
   __typename?: 'Mutation';
   addOrUpdateFlag: Scalars['Boolean'];
+  addOrUpdateOrder: Scalars['Boolean'];
   addProduct: ProductSchema;
   createUser: UserSchema;
   editAddressDetails: Scalars['Boolean'];
@@ -159,13 +180,19 @@ export type Mutation = {
   register: RegisterSchema;
   signin: SigninOutput;
   toggleAdminApproved: Scalars['Boolean'];
-  toggleArchived: Scalars['Boolean'];
+  toggleOrderArchived: Scalars['Boolean'];
+  toggleProductArchived: Scalars['Boolean'];
   verifyToken: VerifyTokenSchema;
 };
 
 
 export type MutationAddOrUpdateFlagArgs = {
   input: AddOrUpdateFlag;
+};
+
+
+export type MutationAddOrUpdateOrderArgs = {
+  input: AddOrUpdateOrder;
 };
 
 
@@ -216,7 +243,13 @@ export type MutationToggleAdminApprovedArgs = {
 };
 
 
-export type MutationToggleArchivedArgs = {
+export type MutationToggleOrderArchivedArgs = {
+  archived: Scalars['Boolean'];
+  id: Scalars['String'];
+};
+
+
+export type MutationToggleProductArchivedArgs = {
   archived: Scalars['Boolean'];
   id: Scalars['String'];
 };
@@ -243,6 +276,7 @@ export type Query = {
   getFlagByTypeAndDescription: FlagSchema;
   getFlagTypes: Array<GetFlagType>;
   getFlagsByType: Array<FlagSchema>;
+  getOrders: Array<GetOrder>;
   getOrganisations: Array<GetOrganisationsSchema>;
   getPerson: GetPersonSchema;
   getPersons: Array<GetPersonsSchema>;

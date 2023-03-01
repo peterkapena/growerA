@@ -16,7 +16,6 @@ import People from "./pages/people/People";
 import Person from "./pages/people/Person";
 import PersonEdit from "./pages/people/PersonEdit";
 import AddUser from "./pages/user/AddUser";
-import FlagTypes from "./pages/flag/FlagTypes";
 import Admin from "./pages/admin/Admin";
 import Flags from "./pages/flag/Flags";
 import Flag from "./pages/flag/Flag";

@@ -4,7 +4,7 @@ import DataTable from "../../components/other/DataTable";
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import Loading from "../../components/other/Loading";
 import { AdminGetUsersQuery } from "../../__generated__/graphql";
-import { Box, Button, CardHeader, Switch, Typography } from "@mui/material";
+import { Box, Button, CardHeader, Switch } from "@mui/material";
 import { PAGES } from "../../common";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";

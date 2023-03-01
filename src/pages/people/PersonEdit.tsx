@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Card,
   CardContent,
   CardHeader,
@@ -8,12 +7,10 @@ import {
 } from "@mui/material";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 import { GetPersonSchema } from "../../__generated__/graphql";
 import Loading from "../../components/other/Loading";
-import { EditOutlined } from "@mui/icons-material";
-import { PAGES } from "../../common";
 import BasicDetails from "../../components/personedit/BasicDetails";
 import ContactDetails from "../../components/personedit/ContactDetails";
 import AddressDetails from "../../components/personedit/AddressDetails";
@@ -59,7 +56,6 @@ export default function PersonEdit() {
   const { data, loading } = useQuery(GetPersonEdit, {
     variables: { input: personId },
   });
-  const navigate = useNavigate();
 
   if (!data || loading) return <Loading></Loading>;
 

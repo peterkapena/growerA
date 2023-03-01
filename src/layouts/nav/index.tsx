@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
 import { Box, Drawer, Typography, Avatar } from "@mui/material";
 import useResponsive from "../../hooks/useResponsive";
@@ -24,8 +23,6 @@ type NavProps = {
 };
 
 export default function Nav({ openNav, onCloseNav }: NavProps) {
-  const { pathname } = useLocation();
-
   const isDesktop = useResponsive("up", "lg");
   const user = useUser();
 

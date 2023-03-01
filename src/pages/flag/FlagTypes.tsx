@@ -1,5 +1,4 @@
 import { gql, useQuery } from "@apollo/client";
-import { Typography } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import PageLabel from "../../components/labels/PageLabel";
 import DataTable from "../../components/other/DataTable";
