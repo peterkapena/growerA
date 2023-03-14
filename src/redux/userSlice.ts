@@ -9,11 +9,13 @@ interface UserState {
   surName?: string | null | undefined;
   givenName?: string | null | undefined;
   organisationId: string;
+  organisationName: string;
 }
 
 // Define the initial state using that type
 const initialState: UserState = {
   organisationId: "",
+  organisationName: "",
 };
 export const UserSlice = createSlice({
   name: "user",
@@ -26,6 +28,7 @@ export const UserSlice = createSlice({
       state.surName = action.payload.user.surName;
       state.username = action.payload.user.username;
       state.organisationId = action.payload.user.organisationId;
+      state.organisationName = action.payload.user.organisationName;
     },
     signOut: () => {
       sessionStorage.removeItem(STR_TOKEN);

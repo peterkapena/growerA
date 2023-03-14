@@ -17,7 +17,7 @@ const documents = {
     "\nquery GetFlagsByType($input: Float!) {\n    getFlagsByType(input: $input) {\n      description\n      _id\n    }\n  }\n": types.GetFlagsByTypeDocument,
     "\nmutation EditPersonBasicDetails($input: EditPersonBasicDetailsSchema!) {\n  editPersonBasicDetails(input: $input)\n}\n": types.EditPersonBasicDetailsDocument,
     "\nmutation EditContactDetails($input: EditContactDetailsSchema!) {\n  editContactDetails(input: $input)\n}": types.EditContactDetailsDocument,
-    "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}": types.VerifyTokenDocument,
+    "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n    organisationName\n  }\n}": types.VerifyTokenDocument,
     "\n    query GetFlag($input: String!) {\n        getFlag(input: $input) {\n        flagTypeId\n        flagType\n        description\n        _id\n        }\n  }": types.GetFlagDocument,
     "\n  mutation AddOrUpdateFlag($input: AddOrUpdateFlag!) {\n    addOrUpdateFlag(input: $input)\n  }\n  ": types.AddOrUpdateFlagDocument,
     "\nquery GetFlagTypes {\n  getFlagTypes {\n    id\n    typeName\n  }\n}\n": types.GetFlagTypesDocument,
@@ -69,7 +69,7 @@ export function gql(source: "\nmutation EditContactDetails($input: EditContactDe
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}"): (typeof documents)["\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n  }\n}"];
+export function gql(source: "\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n    organisationName\n  }\n}"): (typeof documents)["\nmutation VerifyToken($input: String!) {\n  verifyToken(input: $input) {\n    username\n    token\n    email\n    surName\n    givenName\n    isValid\n    organisationId\n    organisationName\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

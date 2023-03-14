@@ -15,6 +15,7 @@ mutation VerifyToken($input: String!) {
     givenName
     isValid
     organisationId
+    organisationName
   }
 }`);
 
@@ -42,12 +43,14 @@ export default function Dashboard() {
               token,
               username,
               organisationId,
+              organisationName,
             } = rtn.data?.verifyToken;
 
             sessionStorage.setItem(STR_TOKEN, token);
             dispatch(
               setUser({
                 user: {
+                  organisationName,
                   email,
                   givenName,
                   surName,
